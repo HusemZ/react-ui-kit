@@ -1,10 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
     <div>
       <ul>
-        <li>Home</li>
+        <li>
+          <Link to={'/button'}>Button</Link>
+        </li>
+        <li>
+          <Link to={'/input'}>Input</Link>
+        </li>
       </ul>
     </div>
   )

@@ -1,0 +1,148 @@
+@use 'sass:color';
+@forward '../../styles/variables';
+@use '../../styles/variables' as *;
+
+.btn {
+  background-color: $primary;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+
+  &:not(.pending):not(:disabled):hover {
+    background-color: color.adjust($primary, $lightness: -10%);
+  }
+
+  &.btn-secondary {
+    background-color: $secondary;
+
+    &:not(.pending):not(:disabled):hover {
+      background-color: color.adjust($secondary, $lightness: -10%);
+    }
+  }
+
+  &.btn-info {
+    background-color: $info;
+
+    &:not(.pending):not(:disabled):hover {
+      background-color: color.adjust($info, $lightness: -10%);
+    }
+  }
+
+  &.btn-success {
+    background-color: $success;
+
+    &:not(.pending):not(:disabled):hover {
+      background-color: color.adjust($success, $lightness: -10%);
+    }
+  }
+
+  &.btn-warning {
+    background-color: $warning;
+
+    &:not(.pending):not(:disabled):hover {
+      background-color: color.adjust($warning, $lightness: -10%);
+    }
+  }
+
+  &.btn-danger {
+    background-color: $danger;
+
+    &:not(.pending):not(:disabled):hover {
+      background-color: color.adjust($danger, $lightness: -10%);
+    }
+  }
+
+  &.btn-default {
+    background-color: $default;
+
+    &:not(.pending):not(:disabled):hover {
+      background-color: color.adjust($default, $lightness: -10%);
+    }
+  }
+
+  &.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 38px;
+    height: 38px;
+
+    svg, img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &.btn-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  &.btn-rounded {
+    border-radius: 20px;
+  }
+
+  &.btn-small {
+    padding: 5px 10px;
+    font-size: 14px;
+
+    &.btn-circle {
+      padding: 5px;
+    }
+
+    &.btn-icon {
+      width: 26px;
+      height: 26px;
+
+      svg, img {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    &.btn-rounded {
+      border-radius: 15px;
+    }
+  }
+
+  &.btn-large {
+    padding: 15px 30px;
+    font-size: 18px;
+
+    &.btn-circle {
+      padding: 15px;
+    }
+
+    &.btn-rounded {
+      border-radius: 25px;
+    }
+
+    &.btn-icon {
+      width: 51px;
+      height: 51px;
+
+      svg, img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  &.pending {
+    cursor: progress;
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
