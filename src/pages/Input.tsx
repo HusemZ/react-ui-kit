@@ -32,6 +32,14 @@ const InputPage = () => {
           </div>
         </div>
         <div className='card'>
+          <div className='card-title'>Color</div>
+          <div className='card-body'>
+            <div className='grid-cols-3 gap-4 align-center'>
+              <Input color='primary' placeholder='Primary' label='Primary' variant='filled' />
+            </div>
+          </div>
+        </div>
+        <div className='card'>
           <div className='card-title'>Other</div>
           <div className='card-body'>
             <div className='grid-cols-3 gap-4 align-center'>

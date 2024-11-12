@@ -1,0 +1,107 @@
+// Tag.scss
+
+@use 'sass:color';
+@forward '../../styles/variables';
+@use '../../styles/variables' as *;
+
+.tag {
+  background-color: $primary;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: default;
+  transition: background-color 0.3s;
+  width: fit-content;
+
+  &:hover {
+    background-color: color.adjust($primary, $lightness: -10%);
+  }
+
+  &.tag-secondary {
+    background-color: $secondary;
+
+    &:hover {
+      background-color: color.adjust($secondary, $lightness: -10%);
+    }
+  }
+
+  &.tag-info {
+    background-color: $info;
+
+    &:hover {
+      background-color: color.adjust($info, $lightness: -10%);
+    }
+  }
+
+  &.tag-success {
+    background-color: $success;
+
+    &:hover {
+      background-color: color.adjust($success, $lightness: -10%);
+    }
+  }
+
+  &.tag-warning {
+    background-color: $warning;
+
+    &:hover {
+      background-color: color.adjust($warning, $lightness: -10%);
+    }
+  }
+
+  &.tag-danger {
+    background-color: $danger;
+
+    &:hover {
+      background-color: color.adjust($danger, $lightness: -10%);
+    }
+  }
+
+  &.tag-default {
+    background-color: $default;
+
+    &:hover {
+      background-color: color.adjust($default, $lightness: -10%);
+    }
+  }
+
+
+  &.tag-icon {
+    .icon {
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &.tag-circle {
+    border-radius: 50px;
+    padding: 5px 10px;
+  }
+
+  &.tag-rounded {
+    border-radius: 15px;
+  }
+
+  &.tag-small {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+
+  &.tag-large {
+    padding: 7px 12px;
+    font-size: 16px;
+  }
+
+  .tag-remove {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}

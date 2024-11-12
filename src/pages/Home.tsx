@@ -11,6 +11,9 @@ const Home = () => {
         <li>
           <Link to={'/input'}>Input</Link>
         </li>
+        <li>
+          <Link to={'/tag'}>Tag</Link>
+        </li>
       </ul>
     </div>
   )

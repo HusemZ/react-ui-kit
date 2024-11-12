@@ -5,6 +5,7 @@ import NotFoundPage from '../pages/NotFound'
 import HomePage from '../pages/Home'
 import ButtonPage from '../pages/Button.tsx'
 import InputPage from '../pages/Input.tsx'
+import TagPage from '../pages/Tag.tsx'
 
 const ROUTES: RouteItem[] = [
   {
@@ -18,6 +19,10 @@ const ROUTES: RouteItem[] = [
   {
     path: '/input',
     element: <InputPage />,
+  },
+  {
+    path: '/tag',
+    element: <TagPage />,
   },
   {
     path: '*',

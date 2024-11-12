@@ -4,9 +4,10 @@ import './Input.scss'
 
 interface InputProps extends ComponentProps, Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: string
+  variant?: 'outlined' | 'filled'
 }
 
-const Input: React.FC<InputProps> = ({ label, size = 'medium', color = 'primary', ...props }) => {
+const Input: React.FC<InputProps> = ({ label, variant, size = 'medium', color = 'primary', ...props }) => {
   const [inputLength, setInputLength] = useState(props.value ? props.value.toString().length : 0)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null!)
@@ -28,7 +29,12 @@ const Input: React.FC<InputProps> = ({ label, size = 'medium', color = 'primary'
   return (
     <div className='input-container'>
       {label && <label className='input-label'>{label}</label>}
-      <input ref={inputRef} className={`input input-${size} input-${color}`} {...props} onChange={handleChange} />
+      <input
+        ref={inputRef}
+        className={`input input-${size} input-${variant} input-${color}`}
+        {...props}
+        onChange={handleChange}
+      />
       {props.maxLength && (
         <span className='input-maxlength'>
           {inputLength}/{props.maxLength}
