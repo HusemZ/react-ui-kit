@@ -7,6 +7,7 @@ import ButtonPage from '../pages/Button.tsx'
 import InputPage from '../pages/Input.tsx'
 import TagPage from '../pages/Tag.tsx'
 import SelectPage from '../pages/Select.tsx'
+import RadioPage from '../pages/Radio.tsx'
 
 const ROUTES: RouteItem[] = [
   {
@@ -28,6 +29,10 @@ const ROUTES: RouteItem[] = [
   {
     path: '/select',
     element: <SelectPage />,
+  },
+  {
+    path: '/radio',
+    element: <RadioPage />,
   },
   {
     path: '*',

@@ -17,6 +17,9 @@ const Home = () => {
         <li>
           <Link to={'/select'}>Select</Link>
         </li>
+        <li>
+          <Link to={'/radio'}>Radio</Link>
+        </li>
       </ul>
     </div>
   )
