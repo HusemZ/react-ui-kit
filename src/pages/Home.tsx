@@ -20,6 +20,9 @@ const Home = () => {
         <li>
           <Link to={'/radio'}>Radio</Link>
         </li>
+        <li>
+          <Link to={'/checkbox'}>Checkbox</Link>
+        </li>
       </ul>
     </div>
   )

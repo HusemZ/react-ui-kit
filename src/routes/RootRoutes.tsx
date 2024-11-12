@@ -8,6 +8,7 @@ import InputPage from '../pages/Input.tsx'
 import TagPage from '../pages/Tag.tsx'
 import SelectPage from '../pages/Select.tsx'
 import RadioPage from '../pages/Radio.tsx'
+import CheckboxPage from '../pages/Checkbox.tsx'
 
 const ROUTES: RouteItem[] = [
   {
@@ -33,6 +34,10 @@ const ROUTES: RouteItem[] = [
   {
     path: '/radio',
     element: <RadioPage />,
+  },
+  {
+    path: '/checkbox',
+    element: <CheckboxPage />,
   },
   {
     path: '*',
