@@ -1,0 +1,356 @@
+@use 'sass:color';
+@forward '../../styles/variables';
+@use '../../styles/variables' as *;
+
+.select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  .select-trigger {
+    background-color: #fff;
+    color: #5e5e5e;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    min-height: 38px;
+    transition: all 0.2s;
+
+    .select-value {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &:empty::before {
+        content: attr(data-placeholder);
+        color: #ccc;
+      }
+    }
+
+    .select-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 4px 0;
+
+      .tag {
+        margin: 2px;
+      }
+    }
+  }
+
+  &.select-primary {
+    .select-trigger {
+      &:hover, &:focus, &:active {
+        border-color: $primary;
+      }
+    }
+
+    .select-option {
+      &.selected {
+        background-color: color.adjust($primary, $alpha: -0.9);
+        color: $primary;
+      }
+
+      &:hover:not(.disabled) {
+        background-color: color.adjust($primary, $alpha: -0.95);
+      }
+    }
+  }
+
+  &.select-secondary {
+    .select-trigger {
+      &:hover, &:focus, &:active {
+        border-color: $secondary;
+      }
+    }
+
+    .select-option {
+      &.selected {
+        background-color: color.adjust($secondary, $alpha: -0.9);
+        color: $secondary;
+      }
+
+      &:hover:not(.disabled) {
+        background-color: color.adjust($secondary, $alpha: -0.95);
+      }
+    }
+  }
+
+  &.select-success {
+    .select-trigger {
+      &:hover, &:focus, &:active {
+        border-color: $success;
+      }
+    }
+
+    .select-option {
+      &.selected {
+        background-color: color.adjust($success, $alpha: -0.9);
+        color: $success;
+      }
+
+      &:hover:not(.disabled) {
+        background-color: color.adjust($success, $alpha: -0.95);
+      }
+    }
+  }
+
+  &.select-warning {
+    .select-trigger {
+      &:hover, &:focus, &:active {
+        border-color: $warning;
+      }
+    }
+
+    .select-option {
+      &.selected {
+        background-color: color.adjust($warning, $alpha: -0.9);
+        color: $warning;
+      }
+
+      &:hover:not(.disabled) {
+        background-color: color.adjust($warning, $alpha: -0.95);
+      }
+    }
+  }
+
+  &.select-danger {
+    .select-trigger {
+      &:hover, &:focus, &:active {
+        border-color: $danger;
+      }
+    }
+
+    .select-option {
+      &.selected {
+        background-color: color.adjust($danger, $alpha: -0.9);
+        color: $danger;
+      }
+
+      &:hover:not(.disabled) {
+        background-color: color.adjust($danger, $alpha: -0.95);
+      }
+    }
+  }
+
+  &.select-info {
+    .select-trigger {
+      &:hover, &:focus, &:active {
+        border-color: $info;
+      }
+    }
+
+    .select-option {
+      &.selected {
+        background-color: color.adjust($info, $alpha: -0.9);
+        color: $info;
+      }
+
+      &:hover:not(.disabled) {
+        background-color: color.adjust($info, $alpha: -0.95);
+      }
+    }
+  }
+
+  &.is-multiple {
+    .select-trigger {
+      padding: 10px 15px;
+      min-height: auto;
+
+      .select-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin: -2px;
+
+        .tag {
+          margin: 2px;
+        }
+      }
+    }
+
+    &.has-value {
+      .select-trigger {
+        padding: 3px 15px;
+      }
+    }
+
+    &.select-small {
+      .select-trigger {
+        padding: 5px 10px;
+      }
+
+      &.has-value {
+        .select-trigger {
+          padding: 3px 10px;
+        }
+      }
+    }
+
+    &.select-large {
+      .select-trigger {
+        padding: 15px 20px;
+      }
+
+      &.has-value {
+        .select-trigger {
+          padding: 8px 20px;
+        }
+      }
+    }
+  }
+
+  .select-clear {
+    padding: 0 4px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #64748b;
+    cursor: pointer;
+    margin-right: 4px;
+
+    &:hover {
+      color: $danger;
+    }
+  }
+
+  .select-arrow {
+    font-size: 12px;
+    color: #64748b;
+    transition: transform 0.2s;
+    margin-left: 8px;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+
+  .select-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #e0e0e0;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f9f9f9;
+    }
+  }
+
+  .select-search {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+
+    input {
+      width: 100%;
+      padding: 8px 12px;
+      background-color: #fff;
+      color: #5e5e5e;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+
+      &:focus {
+        border-color: $primary;
+      }
+
+      &::placeholder {
+        color: #ccc;
+      }
+    }
+  }
+
+  .select-options {
+    .select-option {
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+
+      &:hover:not(.disabled) {
+        background-color: #f9f9f9;
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: #f9f9f9;
+      }
+    }
+  }
+
+  .select-no-options {
+    padding: 12px;
+    text-align: center;
+    color: #64748b;
+  }
+
+  &.select-small {
+    .select-trigger {
+      padding: 5px 10px;
+      font-size: 12px;
+      min-height: 32px;
+    }
+
+    .select-option {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+  }
+
+  &.select-large {
+    .select-trigger {
+      padding: 15px 20px;
+      font-size: 16px;
+      min-height: 44px;
+    }
+
+    .select-option {
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+
+    .select-trigger {
+      background-color: #f9f9f9;
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  &.loading {
+    .select-trigger {
+      cursor: progress;
+    }
+  }
+}
